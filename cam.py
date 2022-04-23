@@ -42,7 +42,8 @@ while(cap.isOpened()):
         cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
         retv, frame = cap.read()
 
-    cv2.imshow('frame', frame)
+    gray_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
+    cv2.imshow('frame', gray_img)
     if cv2.waitKey(10) & 0xFF == ord('q'):
         break
 
